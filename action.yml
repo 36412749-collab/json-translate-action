@@ -1,0 +1,77 @@
+name: Routara JSON Translate
+description: >-
+  Translate JSON i18n locale files with AST key-path validation and auto-repair.
+  Preserves structure for React/Vue i18n, Flutter arb, and CI/CD pipelines.
+  Sign up at routara.ai for a $1 promo credit.
+
+branding:
+  icon: globe
+  color: emerald
+
+inputs:
+  api-key:
+    description: Routara API key (sk-or-v1-...). Get one free at https://routara.ai/#auth
+    required: true
+  target-lang:
+    description: Target locale code (e.g. en, ja, zh-CN, de)
+    required: true
+  glob:
+    description: Glob pattern for JSON files to translate (bash globstar)
+    required: false
+    default: '**/*.json'
+  api-base:
+    description: Routara API base URL
+    required: false
+    default: 'https://api.routara.ai'
+  locale:
+    description: Accept-Language header for API error messages
+    required: false
+    default: en
+  fail-on-validation:
+    description: Fail the step if structure validation warns (keys/timestamps)
+    required: false
+    default: 'false'
+  async-mode:
+    description: >-
+      Use async batch API. auto = async when file count exceeds max-files-per-request;
+      true = always async; false = always sync.
+    required: false
+    default: auto
+  max-files-per-request:
+    description: Max files per sync batch request (Routara free tier default 5)
+    required: false
+    default: '5'
+  poll-seconds:
+    description: Poll interval for async jobs (seconds)
+    required: false
+    default: '5'
+  poll-timeout-seconds:
+    description: Max wait for async job completion (seconds)
+    required: false
+    default: '1800'
+
+outputs:
+  files-count:
+    description: Number of input files matched by glob
+  files-written:
+    description: Number of files successfully written
+  validation-warnings:
+    description: Count of files with structure validation warnings
+
+runs:
+  using: composite
+  steps:
+    - name: Translate JSON via Routara
+      shell: bash
+      env:
+        ROUTARA_API_KEY: ${{ inputs.api-key }}
+        TARGET_LANG: ${{ inputs.target-lang }}
+        API_BASE: ${{ inputs.api-base }}
+        FILE_GLOB: ${{ inputs.glob }}
+        ACCEPT_LANG: ${{ inputs.locale }}
+        FAIL_ON_VALIDATION: ${{ inputs.fail-on-validation }}
+        ASYNC_MODE: ${{ inputs.async-mode }}
+        MAX_FILES_PER_REQUEST: ${{ inputs.max-files-per-request }}
+        POLL_SECONDS: ${{ inputs.poll-seconds }}
+        POLL_TIMEOUT_SECONDS: ${{ inputs.poll-timeout-seconds }}
+      run: bash "$GITHUB_ACTION_PATH/scripts/run.sh"

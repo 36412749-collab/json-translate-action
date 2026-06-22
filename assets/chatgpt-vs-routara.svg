@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" role="img" aria-label="ChatGPT vs Routara JSON translation comparison">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+  <rect width="920" height="420" rx="16" fill="url(#bg)"/>
+  <text x="460" y="42" text-anchor="middle" fill="#f9fafb" font-family="Segoe UI, system-ui, sans-serif" font-size="24" font-weight="700">JSON i18n: ChatGPT vs Routara</text>
+  <text x="460" y="68" text-anchor="middle" fill="#9ca3af" font-family="Segoe UI, system-ui, sans-serif" font-size="14">Structure validation · auto-repair · CI-ready GitHub Action</text>
+
+  <!-- ChatGPT column -->
+  <rect x="40" y="96" width="400" height="288" rx="12" fill="#171717" stroke="#404040"/>
+  <text x="240" y="128" text-anchor="middle" fill="#f87171" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="700">Generic ChatGPT</text>
+  <g fill="#d4d4d4" font-family="Segoe UI, system-ui, sans-serif" font-size="14">
+    <text x="64" y="168"> May rename JSON keys</text>
+    <text x="64" y="198"> Breaks nesting / array order</text>
+    <text x="64" y="228"> Wraps output in ``` fences</text>
+    <text x="64" y="258"> No structural validation</text>
+    <text x="64" y="288"> Manual copy-paste in CI</text>
+    <text x="64" y="318"> No batch / GitHub Action</text>
+    <text x="64" y="358" fill="#9ca3af" font-size="12">Best for chat  risky for locale files</text>
+  </g>
+
+  <!-- Routara column -->
+  <rect x="480" y="96" width="400" height="288" rx="12" fill="#052e26" stroke="#10b981"/>
+  <text x="680" y="128" text-anchor="middle" fill="url(#emerald)" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="700">Routara JSON Translate</text>
+  <g fill="#d1fae5" font-family="Segoe UI, system-ui, sans-serif" font-size="14">
+    <text x="504" y="168"> AST key-path validation</text>
+    <text x="504" y="198"> Auto-repair retry on failure</text>
+    <text x="504" y="228"> Strips code fences automatically</text>
+    <text x="504" y="258"> Preserves {{placeholders}}</text>
+    <text x="504" y="288"> GitHub Action + batch API</text>
+    <text x="504" y="318"> Async queue for large repos</text>
+    <text x="504" y="358" fill="#6ee7b7" font-size="12">Sign up ’ $1 promo credit · routara.ai</text>
+  </g>
+</svg>
