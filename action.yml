@@ -1,12 +1,9 @@
 name: Routara JSON Translate
-description: >-
-  Translate JSON i18n locale files with AST key-path validation and auto-repair.
-  Preserves structure for React/Vue i18n, Flutter arb, and CI/CD pipelines.
-  Sign up at routara.ai for a $1 promo credit.
+description: Translate JSON i18n files with AST key-path validation and auto-repair. Free tier at routara.ai
 
 branding:
   icon: globe
-  color: emerald
+  color: green
 
 inputs:
   api-key:
